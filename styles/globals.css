@@ -1,4 +1,9 @@
-main {
+body {
   margin: 0 auto;
   width: 95%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
