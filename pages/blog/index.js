@@ -4,7 +4,7 @@ import Link from 'next/link'
 // posts will be populated at build time by getStaticProps()
 function Blog({ posts }) {
 	return (
-		<div class="container">
+		<div className="container">
 			{posts.map((post, i) => (
 				<h1 key={i}>{post.title.rendered}</h1>
 			))}

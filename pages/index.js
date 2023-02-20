@@ -16,7 +16,7 @@ export default function Home() {
 					rel="stylesheet"
 				></link>
 			</Head>
-			<main class="container" style={{ marginTop: '10px' }}>
+			<main className="container" style={{ marginTop: '10px' }}>
 				<ul>
 					<li>
 						<Link href="/blog">Blog</Link>

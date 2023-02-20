@@ -4,6 +4,7 @@ import axios from 'axios'
 const Context = createContext()
 
 export const Provider = ({ children }) => {
+	const [isLoaded, setIsLoaded] = useState(false)
 	const [meals, setMeals] = useState([])
 
 	// pagination
@@ -60,6 +61,8 @@ export const Provider = ({ children }) => {
 				currentMeals,
 				thingsPerPage,
 				paginate,
+				isLoaded,
+				setIsLoaded,
 			}}
 		>
 			{children}

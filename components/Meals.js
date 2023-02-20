@@ -13,6 +13,7 @@ export default function Meals() {
 		currentMeals,
 		thingsPerPage,
 		paginate,
+		isLoaded,
 	} = useContext(Context)
 
 	function MealsCount({ total, healthy, semihealthy, unhealthy }) {
@@ -40,7 +41,7 @@ export default function Meals() {
 	}
 
 	return (
-		<div class="container">
+		<div className="container">
 			<MealsCount
 				total={countMeals()}
 				healthy={countMeals('healthy')}
@@ -48,32 +49,39 @@ export default function Meals() {
 				unhealthy={countMeals('unhealthy')}
 			/>
 			<MealForm meal={addMeal} />
-			<div className="table-responsive">
-				<table className="table table-success table-hover">
-					<thead>
-						<tr>
-							<th scope="col">Date</th>
-							<th scope="col">Meal</th>
-							<th scope="col"></th>
-							<th scope="col"></th>
-							<th scope="col"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<MealsP meals={currentMeals} onRemoveMeal={removeMeal} />
-					</tbody>
-				</table>
-			</div>
-			<Pagination
-				thingsPerPage={thingsPerPage}
-				totalThings={meals.length}
-				paginate={paginate}
-			/>
-			<p>
-				<sup>*</sup>Percentages = daily calorie intake, based on a 2000 calorie
-				diet.
-			</p>
-			<br />
+			{isLoaded ? (
+				<p style={{ textAlign: 'center' }}>
+					<b>Loading . . . be patient!</b>
+				</p>
+			) : (
+				<>
+					<div className="table-responsive">
+						<table className="table table-success table-hover">
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Meal</th>
+									<th scope="col"></th>
+									<th scope="col"></th>
+									<th scope="col"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<MealsP meals={currentMeals} onRemoveMeal={removeMeal} />
+							</tbody>
+						</table>
+					</div>
+					<Pagination
+						thingsPerPage={thingsPerPage}
+						totalThings={meals.length}
+						paginate={paginate}
+					/>
+					<p>
+						<sup>*</sup>Percentages = daily calorie intake, based on a 2000
+						calorie diet.
+					</p>
+				</>
+			)}
 		</div>
 	)
 }
