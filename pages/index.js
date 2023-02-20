@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Provider } from '../context/Context'
 import Link from 'next/link'
+import Alert from '../components/Alert'
 import Meals from '../components/Meals'
 
 export default function Home() {
@@ -16,12 +17,9 @@ export default function Home() {
 					rel="stylesheet"
 				></link>
 			</Head>
-			<main className="container" style={{ marginTop: '10px' }}>
-				<ul>
-					<li>
-						<Link href="/blog">Blog</Link>
-					</li>
-				</ul>
+			<main className="container">
+				<Alert />
+				{/*<ul><li><Link href="/blog">Blog</Link></li></ul>*/}
 				<Meals />
 			</main>
 		</Provider>
