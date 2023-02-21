@@ -22,6 +22,7 @@ export const Provider = ({ children }) => {
 		try {
 			const res = await axios.get(MEALS_URL)
 			setMeals(res.data)
+			setIsLoaded(true)
 		} catch (err) {
 			console.log(err)
 		}
