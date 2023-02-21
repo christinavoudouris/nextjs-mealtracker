@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Provider } from '../context/Context'
-import Link from 'next/link'
+// import Link from 'next/link'
 import Alert from '../components/Alert'
 import Meals from '../components/Meals'
 
